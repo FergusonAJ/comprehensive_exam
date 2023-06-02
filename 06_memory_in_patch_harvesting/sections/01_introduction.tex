@@ -1,0 +1,65 @@
+\section{Introduction}
+
+% Lead in - how does this relate to the other chapters
+Previous work has shown that the environment can influence the relative contributions of adaptation, chance, and history \cite{smithFitnessEvolvingBacterial2022}. 
+I have previously proposed testing how changes to the environment and underlying representation affect potentiation in successful lineages (Chapters \ref{chap:replaying_associative_learning} and \ref{chap:simplified_model}). 
+However, I will be unable to concretely identify if differences between those two systems are due to changing the environment or the representation. 
+To remedy this issue, here I propose to quantify potentiation along successful lineages in two additional Avida environments.
+By keeping the representation constant, potentiation differences must therefore be a result of the change in environment or the targeted trait within. %due to the one factor that has changed, the environment. 
+
+% The results of Chapters \ref{chap:replaying_associative_learning} and \ref{chap:simplified_model} are uncertain, but I expect one of three possibilities: %can have many potential outcomes, but we can boil them down to three categories: 
+% 1) we observe similar patterns in potentiation between the associative learning Avida environment and the simplified bitstring model, 
+% 2) potentiation looks drastically different between the two setups, with no discernible patterns, or
+% 3) a mix, where some traits are shared and others are drastically different. 
+% My hypothesis is that the third option is what we will observe. 
+% However, regardless of which situation is true, the results of those chapters will lay the initial expectations for how potentiation varies as systems change. 
+% Between those chapters I proposed to vary both the environment and the representation of organisms. 
+% Here, I propose to lock the representation, analyzing potentiation in two additional environments within Avida. 
+
+%Regardless of which situation is true, the results of those chapters will prompt us to look at the similarities and differences in potentiation between the two systems. 
+%If there are differences, can we untangle \textit{why} these differences exist? 
+%If the patterns are mostly the same, can we use this information to predict how potentiation will change when looking at other environments and target behaviors?
+%These are the questions I propose to investigate in this chapter by looking at two different environments and target behaviors in Avida. 
+
+%Avida has been used to study a wide variety of evolutionary dynamics, ranging from X to Y to Z. 
+
+% Why stick with Avida? Easier comparisons with the same levels of epistasis. 
+I hypothesize that in many cases, potentiating mutations are highly epistatic, as epistasis is one key way for a seemingly innocuous mutation to have a drastic effect on later mutations.
+As such, studies of potentiation should employ representations capable of epistatic interactions. 
+This is an advantage of using Avida; there are multiple possibilities for epistasis between instructions, and in previous work I have confirmed that these interactions are sufficient for complex potentiation dynamics (Chapter \ref{chap:alife_submission}).
+By conducting studies of potentiation in multiple Avida environments, I will investigate how environmental differences influence potentiation as the underlying representation, and thus the potential for epistatic interactions, only slightly differ. 
+
+%We have demonstrated in Chapter \ref{chap:alife_submission} that we can quantify how the potentiation of a target behavior changes along a successful lineage in Avida.
+%By the time we start on this project, we will have observed potentiation at a larger scale (Chapter \ref{chap:replaying_associative_learning}) and in a simplified model (Chapter \ref{chap:simplified_model}). 
+Specifically, I propose to investigate potentiation in a patch harvesting behavior and in phenotypic plasticity. 
+In the patch harvesting environment described in \citep{pontesEvolutionaryOriginsCognition2021}, I will target the successful harvesting of multiple patches in an organism's lifetime. %memory usage in the decision to exploit the current patch or explore to find a new patch. 
+In the cyclic logic 6 environment (Chapter \ref{chap:consequences_of_plasticity}), I will target optimal plasticity. 
+%By changing the environments and the behaviors we consider successful, we will be analyzing very different fitness landscapes and the effects they have on potentiation. 
+While both target behaviors are complex, their details differ both with each other and with associative learning from previous work (Chapter \ref{chap:replaying_associative_learning}). 
+Ultimately, will these details influence how potentiation changes? 
+
+% Expectations and impact
+%Specifically, here we target two different yet related behaviors. 
+The patch harvesting behavior I am targeting is a basic cognitive behavior. 
+In order to harvest multiple patches, organisms must switch between exploring to find new patches or exploiting the patch they are currently on. % state in order to successfully harvest multiple patches. 
+Similar to the associative learning behavior in Chapter \ref{chap:replaying_associative_learning}, this behavior requires several different components in order to function (information storage, memory retrieval and usage, etc.).
+As such, I expect the two behaviors to exhibit similar patterns in potentiation. 
+%Specifically, I expect that single mutations (especially in the formation and usage of memory) can result in a drastic potentiation increase. 
+The other behavior, optimal plasticity in the cyclic logic 6 environment, is a reactive behavior that does not require memory. % has similarities and differences to the other two behaviors.
+It does, however, still consist of multiple components (performing tasks and regulating them due to environmental cues) that can be neutral or deleterious in isolation. 
+Therefore, I also expect to see similar patterns in potentiation in the evolution of optimal plasticity. % regardless of the difference in the behaviors. 
+
+% Conclusion - this is important because regardless of what the outcome is, the information we gain will be incredibly useful for future studies into potentiation and the role of history in evolution
+This work will expand upon the previous chapters, providing additional examples of how potentiation changes as we vary the environment and target behavior. 
+All together, these works will shape how we view potentiation, and will provide an expanding dataset for other researchers to compare against in the future. 
+% Note that this will be the first time incorporating what we learned from chapter 4?
+
+% As we discussed in the previous chapters, we can quantify how potentiation, the likelihood a focal trait evolves from a given genotype, changes over time. 
+% In those chapters, I proposed studying these changes in potentiation in the context of associative learning (Chapters \ref{chap:alife_submission} and \ref{chap:replaying_associative_learning}) and in a simple bitstring NK landscape model (Chapter \ref{chap:simplified_model}). 
+% The goal of those chapters is to try and find common trends in how potentiation changes across multiple lineages. 
+% Here we continue to expand on these questions by looking at potentiation of different behaviors in two other environments: microbial mat harvesting seen by early bilaterian animals and the classic Logic 9 Avida environment. 
+
+% This chapter asks if the target behavior influences how potentiation changes over time given a fixed substrate (in this case Avida organisms). 
+% We will conduct replay experiments on successful lineages from both environments, applying insights learned from the bitstring model of Chapter \ref{chap:simplified_model}, to see if any general patterns emerge. 
+% If we do not see general trends in the evolution of different behaviors in Avida, that will be strong evidence that potentiation is very unique to the target behavior we are analyzing. 
+% If we \textit{do} see general trends, however, this work (along with the previous chapters) will lay the groundwork for future studies in other environments, computational substrates, or even in living organisms. 

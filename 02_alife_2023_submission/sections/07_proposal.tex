@@ -1,0 +1,57 @@
+\section{Proposed work}
+
+The ALife 2023 submission above lays the framework for how we can conduct and analyze replay experiments in the associative learning domain. 
+However, the submission only examines 4 case study lineages.
+While this is sufficient for demonstrating the technique in this domain and illuminating some possibilities of potentiating mutations, this is clearly insufficient to draw any general trends. 
+Therefore, I propose to extend this work by conducting these analyses on many more learning lineages. 
+
+The evolution of associative learning from the ancestral genotype is rare. 
+To collect a sufficient number of learning replicates, I plan to run initial replicates in small batches (100 or 200), until we reach a suitable number of learning replicates (50). 
+If the 8\% of replicates evolving associative learning holds, we would then expect around 625 total replicates needed to see learning evolve in 50 of them.
+
+Once we enough associative learning replicates, I will conduct replay experiments as described above. %in the same way as the ALife 2023 submission. 
+Course-grained exploratory replays will be used to find windows of potentiation gain, and then fine-grained targeted replays will be conducted on the identified potentiation windows. 
+%To conserve computational resources, we will only conduct targeted replays on windows of length 50, not 100 as we did on Lineages A and B. 
+This is an extraordinary amount of computation, and we expect this to be the slowest portion of the work. 
+
+While the ALife submission took an in-depth look at the effects of individual mutations on the genetic architecture of the organisms, that will not be feasible for every lineage in the extension. 
+Instead, I will focus on the summary statistics of potentiation for each lineage: the largest single-step potentiation gain, the largest single-step potentiation loss, the type of potentiation (as defined in the ALife submission and revised as needed, see Chapter \ref{06_simplified_model}), and the transition of behaviors seen during potentiation. 
+Each of these statistics can be calculated either programmatically or with very little human intervention, greatly increasing the speed of analysis. 
+
+%With the four statistics mentioned above, we can begin to look for patterns in potentiation.% across the different replicates. 
+%These will allow us to ask new questions such as:  
+%How often does a single mutation confer substantial (>30 percentage points) potentiation? 
+%How often do single mutations confer substantial losses in potentiation? 
+%What scenarios of potentiation do we see, and how common is each one? 
+%Finally, do differences in pre-learning behavior influence how potentiation changes? 
+
+% Move to impact?
+This extension will give the ALife submission much needed statistical power.
+Simply by conducting these analyses on more associative learning lineages, we will be able to, for the first time, observe general patterns in how lineages potentiate for a given trait.
+While this work will only be examining the evolution of associative learning in Avida, these general trends in potentiation may be applicable to other behaviors (see Chapter \ref{04_memory_in_patch_harvesting}) or, more excitingly, other study systems (see Chapter \ref{05_potentiation_across_representations}) 
+
+\subsubsection{Hypotheses}
+
+%I have a few hypotheses to test after we increase the number of lineages we analyze:
+Given the potentiating mutations we have seen in the ALife submission, I propose four hypotheses to test as we increase the number of replicates we analyze: 
+
+\begin{enumerate}
+    \item When evolving associative learning in Avida, most lineages see substantial (>30 percentage points) potentiation increases in a single phylogenetic step.
+    \item Even though we did not see strong evidence in the four initial lineages, some lineages experience sizable losses in potentiation over time. These losses are expected to coincide with either beneficial mutations or mutations proceeding sizable gains in fitness.
+    \item Building off 1 and 2, some lineages will contain \textit{multiple} single-step potentiating increases after seeing a decrease after the first.  
+    \item The details of potentiation will change depending on what behavior was displayed in the lineage before learning.
+\end{enumerate}
+
+Additionally, I expect that the way we categorize potentiating mutations will change as we see more examples. 
+In the ALife submission, we placed the potentiating mutations into three categories (1) moving toward the behavior, introducing it into the local mutational neighborhood, (2) increasing the benefit of the behavior, and (3) a generic gateway mutation that provides an eventual pathway to the behavior. 
+Those three categories, however, were created from only a  handful of potentiating mutations. 
+As this number increases, we will continue to refine how we categorize and describe these mutations. 
+See the proposal for Chapter \ref{06_simplified_model} for more details on our current thoughts. 
+
+\subsection{Impact}
+Here we discuss associative learning in Avida. 
+However, these ideas of historical contingency and potentiation extend well beyond this system and can be applied across evolutionary biology. 
+Leveraging the power and speed of digital evolution, this proposal increases the breadth and depth of potentiation studies. 
+While previous work [CITE] has looked at potentiation in a single (or a few? [TODO]) lineage(s?), for the first time here we observe potentiation across multiple lineages to look for patterns in potentiation. 
+Additionally, these potentiation assays are conducted for \textit{every step} in the identified potentiation windows, which is more fine-grained than what is often possible in living systems. 
+Combined with Chapters \ref{04_memory_in_patch_harvesting} and \ref{05_potentiation_across_representations}, this work will create a baseline expectation of how potentiation can change over a successful lineage. 

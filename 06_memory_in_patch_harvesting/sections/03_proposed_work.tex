@@ -1,0 +1,32 @@
+\section{Proposed work}
+
+In both environments, I will measure attributes of potentiation by conducting analytic replay experiments as described in Chapter \ref{chap:replaying_associative_learning}. 
+I will then compare the measurements to previous data from Chapters \ref{chap:replaying_associative_learning} and \ref{chap:simplified_model} to determine what differences exist between the different environments. 
+This work will provide additional examples of potentiation and allow the first cross-environment comparisons while keeping the underlying representation the same. 
+
+Potentiation will be quantified using the exact same methods as Chapter \ref{chap:replaying_associative_learning}. 
+Initial evolutionary replicates seeded with the default ancestor will be conducted to find replicates that exhibit the target behavior (multi-patch harvesting or optimal plasticity). 
+For each environment, I will run initial replicates until I reach 40 successful lineages. 
+To measure the changes in potentiation along the dominant lineage of each replicate, I will conduct two phases of replay experiments. 
+The first will seed replicates with the genotypes found 50, 100, 150, and 200 steps before the target behavior first appeared in the lineage. 
+I will continue to go backward along the lineage until a step shows less than 10 percentage points of improvement over the success rate from the initial replicates.
+Once the exploratory replays have been conducted, I will identify potentiation windows (as in Chapter \ref{chap:replaying_associative_learning}) and seed replay replicates for every genotype in the windows. 
+As before, I will run fifty replay replicates for each genotype analyzed. 
+
+After conducting the replay experiments, I will collect the same potentiation measures described in Section \ref{sub:potentiation_measures}.
+%These include maximum single-step potentiation gain/loss, the number of potentiation gain/loss windows, the fitness effect and behavioral background of potentiating/anti-potentiating mutations, and the distance between potentiating mutations and the appearance of the target behavior. 
+Since these are the same measurements recorded in Chapters \ref{chap:replaying_associative_learning} and \ref{chap:simplified_model}, I can then statistically compare the distributions of each measurement across environments. 
+The one exception is the behavioral background, which is unique to each task and thus can only be compared within a given environment. 
+The cross-environment comparisons will be conducted first as a Kruskal-Wallis test to determine if significant differences exist across all of the environments \citep{kruskal_use_1952}. 
+If a difference is detected, I will then conduct pairwise Mann-Whitney-Wilcoxon tests to look for significant differences between each pair of environments \citep{10.2307/3001968}. 
+Finally, I will use a Holm-Bonferroni correction for multiple comparisons \citep{holmSimpleSequentiallyRejective1979}.
+
+These comparisons will provide insight into how these potentiation dynamics vary when the environment changes but the representation stays the same. 
+I expect only small differences between the associative learning behavior of Chapter \ref{chap:replaying_associative_learning} and the patch harvesting behavior examined here. 
+Both cognitive behaviors require memory and have exist in environments containing non-cognitive alternative behaviors with high performance that might function as local optima. 
+For the other environment, cyclic logic 6, I expect to see similar overall dynamics but a difference in the measured values. 
+While the environment and behavior are drastically different from the other two, one particularly notable difference is that $>40\%$ of replicates evolved optimal plasticity in the different experiments of Chapter \ref{chap:consequences_of_plasticity}. 
+Therefore I do not expect the same levels of potentiation gain as we observed in the evolution of associative learning in Chapter \ref{chap:alife_submission}, simply because the lineages start with a much higher level of potentiation. 
+%Alternatively, lineages could still experience these  most of their potentiation in a single mutation, or we could observe more potentiation losses in this environment. 
+Alternatively, we must consider that the cyclic logic 6 environment is the only proposed environment that changes with time; these changes to selective pressures may repeatedly break down potential building blocks and thus increase the potentiation gain when they are finally utilized. 
+Regardless of the outcome, this work will provide needed data on potentiation and more insight into how evolution is (or is not!) contingent on initially innocuous mutations. 

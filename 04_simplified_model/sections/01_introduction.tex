@@ -1,0 +1,155 @@
+\section{Introduction}
+
+% General intro
+% Previous work had interesting results and I think epistasis is the key
+Chapter \ref{chap:alife_submission} found evidence of individual mutations that conferred huge gains in potentiation. %, with such mutations observed multiple times in different lineages. 
+Because all four lineages exhibited these potentiating mutations, I expect them to be found in most lineages that evolve associative learning in that system. 
+%This is what Chapter \ref{chap:replaying_associative_learning} investigates. 
+Epistatic interactions must play a key role in these mutations, but are they enough to create the full potentiation dynamics that I have shown? %the driving factor? 
+Further, does the level of epistasis in a system affect how potentiation changes?
+
+% Let's use an NK model is about the simplest thing we could use to study potentiation. 
+% If results match, great! It'll be an interesting comparison. 
+% If not, we know that something else is needed and we can move in that direction. 
+Here I propose investigating potentiation in a much simpler model by evolving bitstrings in an NK landscape. 
+While this model will remove much of the complexity found in Avida, NK landscapes allow me to tune the level of epistasis by varying the $K$ parameter. 
+If similar potentiation dynamics appear in this simple system, they will provide strong evidence that epistasis alone is sufficient as a causative agent for the potentiation results in previous chapters.
+%epistatic interactions are key to these large potentiating mutations. 
+If, instead, the potentiation results are drastically different, I will have narrowed down the set of possible factors, giving us additional information to develop further hypotheses and for building the next system to study potentiation. %know that additional factors are important, and we can expand the model to try and find those key factors. 
+
+% Explain benefit of bitstring models?
+  % - Fast
+  % - Feasible to analyze and maybe even enumerate a landscape
+  % - The simplicity often means there are fewer possibilities to consider when something occurs
+%Why NK landscapes?
+As in previous chapters, I measure potentiation of a genotype by seeding multiple evolutionary replicates with that genotype and then calculating the percentage of those replicates that evolve the target trait \citep{blountGenomicAnalysisKey2012}.
+Normally we focus on a particular phenotype as our target trait.  Given the simplicity of NK landscapes, however, I define the target trait as the globally optimal genotype.
+If this simple target is insufficient to produce potentiation results due to the global optimum being too small of a target, I will explore other mechanisms for defining the target trait, but preliminary results (discussed below) indicate that this is not likely to be an issue.
+
+Indeed, preliminary results in these NK landscapes have shown that potentiation varies across genotype space. 
+With this confirmation, NK landscapes offer several benefits in the study of potentiation. 
+First, as with most bitstring models, they are substantially faster than more complex systems like Avida. 
+This speed improvement drastically reduces the time required to gather data, which has been the largest hurdle in previous studies of potentiation. 
+Second, by reducing the complexity of the system, we can perform deeper analyses (e.g., larger mutational neighborhood studies, including exhaustive landscape analyses in some cases). 
+%A substantial body of literature exists for analyzing these simpler fitness landscapes \citep{malanSurveyTechniquesCharacterising2013, devisserEmpiricalFitnessLandscapes2014, hornGeneticAlgorithmDifficulty1995, ostmanPredictingEvolutionVisualizing2014}.
+%analyses of the fitness landscape become easier and many studies have investigated various aspects of these landscapes. 
+%Additionally, the genotype space itself is much more manageable.
+While work in Avida can examine only a portion of genotypes along each lineage, full enumeration of the potentiation landscape is possible when using short bitstrings. 
+Combined with the ability to tune the amount of epistasis in NK landscapes, these attributes make it tractable for me to systematically examine potentiation. %more thoroughly and in less time compared to Avida. 
+
+% What exactly are we testing here?
+I have three main aims in this chapter: 
+1) to compare potentiation in NK landscapes to that found in the associative learning Avida domain,
+2) to investigate the effect that epistasis has on potentiation, 
+%and 3) to build our intuition of potentiation and benchmark our measurements and approximations for potentiation. 
+and 3) to continue building our intuition of potentiation and expanding our repertoire of measurements and analytical tools. %approximations. % of potentiation. 
+The first two aims can be accomplished by calculating potentiation in NK landscapes and conducting comparison analyses. %of various $K$ values and comparing those potentiation measurements across $K$ values and with the associative learning results from Chapter \ref{chap:replaying_associative_learning}. 
+The third aim, however, requires more discussion.
+
+% What am I trying to test? i.e., explain the possibilities of potentiating mutations and how those can be tested here (or in proposed work instead?)
+Through the lens of adaptation, chance, and history, potentiating mutations decrease the influence of chance and increase the influence of adaptation in reaching the target trait. 
+I hypothesize that these mutations can take many different forms, at least in how they are commonly observed.
+However, I propose that, while our limited observations of these potentiating mutations may vary considerably, at a fundamental level they are all moving toward pathways where adaptation can drive the population toward the target trait. 
+This disconnection between the underlying mechanics and the observed values arises from the epistasis of the system and our inability to analyze across large genetic differences.
+In a complex system, for any mutational neighborhood analysis of a given distance, even if a target trait is observed, it is not necessarily most easily reached by a direct path, nor is it even guaranteed that there is not an easier target to reach at a further distance.
+%there is always the possibility that the potentiating mutation is $n+1$ steps away from the genotype that has a traversable path to the target trait.
+In a small enough NK landscape, however, we can fully test these dynamics, identifying how useful local landscape information is for overall prediction of evolutionary outcomes.
+Therefore, I will conduct mutational neighborhood analyses of various distances to determine if this technique is useful for characterizing potentiating mutations, and if so, which distances perform the best across epistatic strengths. 
+%However, I propose that under the hood they always increase the likelihood that chance and adaptation favor pathways that lead to the target trait. %increase the selective pressures of pathways that lead to the target trait over those that lead astray. 
+%Let us first consider potentiating mutations that shift us to a genotype closer to the target trait. 
+
+% Talk about other analyses? (basins of attraction, path likelihood)
+Beyond mutational neighborhoods, I will utilize the simplicity of the NK landscape to benchmark several other analyses. 
+I will draw from the substantial body of literature that exists for analyzing these simpler fitness landscapes \citep{malanSurveyTechniquesCharacterising2013, hornGeneticAlgorithmDifficulty1995}.
+Specifically, I will calculate the basin of attraction \citep{ostmanPredictingEvolutionVisualizing2014} for each optima to determine how the specific basins a genotype is in relates to its potentiation. 
+I will also analyze the relationship between potentiation and fitness of each genotype to test my hypothesis that potentiating mutations are often neutral or deleterious. 
+Additionally, I will employ analytical search techniques to find the most likely path between a genotype and the target trait. %compare potentiation of a given genotype to the maximum likelihood that a path is taken from that genotype to the target trait. 
+By comparing the probability of this path to the potentiation of the genotype, I will build intuition on the explanatory power of the most likely path versus the many viable paths to the target that may exist. 
+This will help inform how multiple paths combine to create the potentiation that we actually measure. 
+%Since multiple viable paths to the target may exist, this will build our intuition on how various paths contribute to create potentiation in an NK landscape. 
+
+Taken together, these comparisons and analyses will improve our understanding by inspecting the generalizability of potentiation trends and testing the metrics we use to characterize potentiation. 
+This work will also provide additional data for future studies, starting the process of expanding our study systems beyond Avida. 
+%provide evidence for or against general trends in potentiation, improve our understanding of potentiation, and provide a large dataset of potentiation for future comparison that is outside of Avida. 
+Finally, I expect this study to either demonstrate the explanatory power of using NK landscapes to understand potentiation dynamics, or it will identify the existence of more complex dynamics that underlie potentiation and thus broaden the features of landscapes that need to be considered to conduct potentiation analyses.
+
+%In this chapter, I propose to study the generalizability of trends in potentiation by %studying the evolution of bitstrings in NK landscapes. 
+%This will provide evidence if the dynamics seen in earlier work, such as large potentiation gains from single mutations, are common or unique to the previous system. 
+%Additionally, I will conduct analyses to help expand our intuition into potentiation, and I will evaluate our measurements in a system that can be fully enumerated. 
+%Overall, this will provide a conceptual foundation for future works in potentiation. 
+
+
+
+%My hypothesis is that potentiating mutations increase the likelihood of evolving the target trait by improving the possible pathways through genotype space to that trait, improving the probability that one of these pathways is taken. 
+%These pathways can improve in value or in number, and I expect that the improvements can take several forms. 
+%This, however, can take several forms, as the pathways can improve in value or in number.
+% First, the potentiating mutation can be a shift toward the target trait. 
+% In a pure hill-climbing environment I would not expect this to increase potentiation, as evolution will always reach the target trait regardless of where it started. 
+% I would, however, expect an increase in potentiation if that movement was from a genotype with multiple adaptive paths, some of which led to local optima, to a genotype with a higher proportion of adaptive paths leading to the target trait. 
+% Alternatively, a neutral or deleterious mutation could increase potentiation, as it locks in a chance event, reducing the amount of additional chance needed to reach the target trait. 
+% Second, potentiating mutations can be orthogonal or even opposed to the target trait if they create future epistatic interactions. 
+% While moving away from the target trait may sound detrimental, this shift could be to a genotype that has clear, adaptive fitness gradients to the target behavior. 
+% In fact, these epistatic interactions are not required to occur immediately, as they could be several mutations away from the clear fitness gradient, but each step in that direction decreases our reliance on chance and thus should increase potentiation. 
+
+%Due to computational limitations, my previous analyses were restricted to the two-step mutational neighborhood, which limited the depth of the epistatic interactions we could observer. 
+%Thanks to the speed and limited genotypic space of NK landscapes, I can now conduct these analyses at a much deeper scale. 
+%By continuing this work, I will quantify the potentiation changes of individual mutations in a second environment, allowing for comparisons with potentiation in the associative learning Avida environment of Chapter \ref{chap:replaying_associative_learning}. 
+%This second environment will allow me to test my hypotheses on the types of mutations that can increase potentiation. 
+%This will provide evidence of the generality of potentiation changes, as well as the impact that epistasis has on potentiation. 
+
+% Need a concluding paragraph... How to tie it all together?
+% Should also talk about how NK landscapes have been useful for studying various dynamics
+
+% After identifying an evolutionary dynamic in a digital evolution system, 
+% When a phenomenon is first observed in a digital evolution system, a logical next step is to ask if that phenomenon is a general trend or unique to that particular system. 
+% Chapter \ref{chap:alife_submission} found evidence of huge gains in potentiation from a single mutation, and this was observed multiple times in different lineages. 
+% Because all four lineages saw these potentiating mutations, we expect them to be found in most lineages that evolve associative learning in that system. 
+% This is what Chapter \ref{chap:replaying_associative_learning} digs into. 
+% Here, I ask two additional questions: 1) are these potentiating mutations found in other systems, and 2) what are the minimum traits that a system needs in order to experience these mutations? 
+% I propose to study potentiation in an NK landscape to begin answering these questions. 
+
+% Much of the explanatory power of digital evolution comes from two sources: repeatability and simplified models that limit the possibilities of causal factors by boiling the situation down to its purest factors.
+% Repeatability is simple as it also exists in nature. 
+% If the same evolutionary dynamics are observed in multiple species, that provides evidence the dynamic is a general phenomenon and not specific to a species. 
+% This same concept applies to digital evolution; observing similar trends in multiple representations and environments will increase our confidence it is not an artifact of the specific system. 
+% On the other hand, simplified models are 
+
+% Digital evolution research focused on a general trend has the potential to be useful beyond computational systems and into evolutionary biology proper.
+% How do we determine if what we are studying is a wider phenomenon and not an idiosyncrasy of our study system? 
+% One possibility is to expand the research to span multiple study systems. 
+% In living systems, an evolutionary dynamic observed in multiple species has the potential to be broadly applicable. 
+% The same holds true for digital evolution; observing a dynamic in multiple study systems increases the likelihood that our understanding will hold for systems that have not yet been tested. 
+% This is what I propose to do in this chapter by creating a simplified model to study the potentiation of a target trait. 
+
+% Specifically, I will use a NK landscape-based bitstring model to analyze general trends in potentiation that were identified in Chapter \ref{chap:replaying_associative_learning}. 
+% The purpose is two-fold: 1) if we can observe the same dynamics in this simpler system, it is more likely our generalizations are true and 2) using a simplified model allows greater control and understanding compared to a system as complicated as Avida.
+% Additionally, the bitstring model will be much faster to execute, allowing for the full enumeration of the potentiation landscape. 
+% Bitstring models are ubiquitous in digital evolution and evolutionary computation research [CITE].
+% Originally used in genetic algorithms, bitstrings have since been used to study X, Y, Z [CITE]. 
+% %Here, we leverage bitstrings for their speed and simplicity. 
+% While some digital evolution work aims to study \textit{what may have happened in the real world}, here we aim to study \textit{evolutionary dynamics in the abstract}. 
+
+%In studying evolution, one of the largest advantages of digital evolution is its speed. 
+%Observing hundreds, if not thousands, of generations per minute provides power not seen \textit{in vivo}.
+%However, significant variation exists between computational models. 
+%All finished or in-progress chapters in this proposal have used the Avida Digital Evolution %Platform \citep{ofriaAvidaSoftwarePlatform2004a}. 
+%While Avida has been used to evolve a wide array of behaviors, it has its idiosyncrasies and is relatively slow in terms of digital systems. 
+%Here, we aim to expand the study of potentiation beyond Avida by evolving populations on bitstrings in an NK landscape. 
+%Indeed, if we observe a certain dynamic in a model as simple as a bitstring, that provides additional evidence of that dynamic, encouraging us to then look for that dynamic in more complicated systems. 
+%Finding evidence of a certain dynamic in a model as simple as a bitstring can encourage investigations of that dynamic in more complex systems, and the simplistic nature of the bitstring model often allows for more comprehensive analyses not possible in more complicated environments. 
+
+% Here, the dynamic we are investigating is the potentiation of a particular trait. 
+% Previous work has shown that potentiation can occur in living organisms \citep{blountHistoricalContingencyEvolution2008} [CITE], and we have began to demonstrate potentiation in digital systems (Chapter \ref{chap:alife_submission}). 
+% This studies are costly, however, both in time and man-hours (\textit{in vitro}) or computational resources (\textit{in silico}).
+% As such, we have so far been unable to quantify potentiation for every step of a lineage. 
+% By switching to a simpler bitstring model, we are able to A) quantify potentiation across the entire genotype space and B) calculate tighter bounds on potentiation. 
+% This will provide additional examples of the types of mutations that can increase potentiation; do potentiating mutations move toward the target behavior, set up future epistatic interactions, or something else?
+
+
+% Performing a sweep of potentiation across all of genotypic space allows us to compare the potentiation landscape with the fitness landscape, determining the interplay of the two measures. 
+% Additionally, we can overlay any evolved lineage on the potentiation landscape at no additional experimental cost, allowing us to see how potentiation changed in successful and unsuccessful replicates. 
+% This provides a look at how potentiation changes over time at a scale that has never been shown. 
+% NK landscapes provide A) an easy way to control how much epistasis exists in the system and B) a rugged landscape where not populations will evolve to the global optimum. 
+
+% Overall, studying potentiation in this simplified will allow us to begin testing refining the theoretical aspects of potentiation. 
+% This work will create a foundation in which future studies, be they digital or living, simple or complex, can build upon and refine. 

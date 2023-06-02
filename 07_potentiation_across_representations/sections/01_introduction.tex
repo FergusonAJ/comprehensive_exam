@@ -1,0 +1,39 @@
+\section{Introduction}
+
+Chapters \ref{chap:replaying_associative_learning} and \ref{chap:varying_environments} investigate the role of historical contingency in Avida. 
+However, do the trends seen in Avida translate to other digital systems? 
+This is the question we ask in this chapter.  
+
+When writing all but the simplest software, we are plagued by making countless design decisions. 
+Designing digital evolution systems is no different. 
+How should organisms store data? 
+Which instructions or operators do we include?
+How large should the initial genome be, and what should it contain?
+Is the genome directly encoded?
+These are all valid questions when designing an evolving system, and each has multiple justifiable answers. 
+However, with each a design decision comes a branching point in how that system operates. 
+Depending on the specific decision, the difference between two choices can have a drastic effect on how evolution proceeds. 
+
+Avida is no exception to this predicament; there are countless design decisions in Avida that affect the different dynamics of evolution. 
+While some of these aspects have been empirically tested \citep{ofriaDesignEvolvableComputer2002, brysonUnderstandingEvolutionaryPotential2013}, others are nearly impossible to investigate because one small changes sends ripples throughout the other parameter spaces. 
+%As an example, as seen when investigating evolved genomes in Chapter \ref{chap:alife_submission}, large portions of the genome can be un-expressed, resulting in a large fraction of mutations being neutral. 
+%How does this interact with historical contingency? 
+Here I propose we investigate the role in representation in potentiation by subjecting an alternate digital substrates to evolution and analysis on the same task. 
+We leverage the patch harvesting task from Chapter \ref{chap:varying_environments}, whose inputs and outputs can easily be encoded to the various data types needed. 
+I will evolve Markov brains \citep{hintzeMarkovBrainsTechnical2017} on the same environment, looking at the potentiation of mutli-patch harvesting behavior. 
+%I will then analyze replicates from each substrate that successfully evolved memory usage. 
+%Did successful lineages follow pathways similar to Avida? 
+%How does potentiation change across substrates? 
+By comparing these results to those in Chapter \ref{chap:varying_environments}, we can conduct a direct comparison in how potentiation changes as we change representations. 
+
+My hypothesis is that the details of potentiation changes will vary as we change the underlying representation, but the general trends will stay the same. 
+Markov brains are also capable of epistatic interactions, and I suspect that mutations that set up a potential interaction for the future will again cause large changes in potentiation. 
+As mutations are quite different in the two systems, I expect to see difference in what these mutations are actually doing. 
+For example, every mutation in Avida either changes, adds, or deletes a single instruction, while in Markov brains a mutation can change not only the type of a gate, but also how the other genes are interpreted.
+Additionally, Markov brains have memory built in; some outputs are actually memory values that are then available as inputs in the next update. 
+As such, I do \textit{not} expect Markov brains to potentiate with mutations that prep memory like we might see in Avida. 
+
+% I expect substantial differences across substrates, however, I expect some general trends to hold true regardless the system used. 
+% Specifically, I expect single mutations to greatly increase potentiation in each of the substrates. 
+% Further, I expect to see the same general potentiation patterns (see discussion of Chapter \ref{chap:alife_submission}) across substrates. 
+% By moving beyond Avida, we can begin to see general trends in potentiation and historical contingency in digital systems, and indeed, begin to set expectations for natural systems. 

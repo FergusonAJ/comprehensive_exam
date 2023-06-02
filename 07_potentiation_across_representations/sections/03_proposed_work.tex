@@ -1,0 +1,27 @@
+\section{Proposed work}
+
+As in Chapter \ref{chap:varying_environments}, the main goal of this chapter is to replicate the potentiation analyses in Chapter \ref{chap:replaying_associative_learning} so we can then compare across systems. 
+Here, this means we will be comparing potentiation along Markov brain lineages in the patch harvesting environment to Chapter 
+\ref{chap:varying_environments} results on Avida lineages in the same environment.
+
+Even though this chapter examines potentiation in Markov brains, a totally different substrate, our analyses of potentiation should be just as applicable. 
+As such, I propose to conduct the same analyses as in Chapters \ref{chap:replaying_associative_learning} and \ref{chap:varying_environments}. 
+Although this system uses synchronous generations, I can still track genotypic phylogenies and thus can conduct the two-phase replay experiments in the same way. 
+As before, I will start by identifying the first genotype in the lineage that exhibits the target behavior and then seeding exploratory replay replicates 50, 100, 150, and 200 steps earlier in the lineage, launching additional replicates as needed until we reach the threshold of fewer than 10 percentage points of potentiation above the value found at the ancestor. 
+I will then identify potentiation windows as done in previous chapters and run targeted replay replicates for each genotype in the windows. 
+
+Once the replays have finished, the rest of the analysis is effectively identical to Chapter \ref{chap:varying_environments}. 
+I will collect the measures of potentiation defined in Section \ref{sub:potentiation_measures}. 
+Then I will statistically compare these measurements with the results of potentiation of Avida lineages on the patch harvesting tasks in Chapter \ref{chap:varying_environments}. 
+Since each measurement is only comparing between two distributions (Avida versus Markov brains), we can simply conduct Mann-Whitney-Wilcoxon tests to look for statistical differences between the two \citep{10.2307/3001968}. 
+
+This work will be the first direct comparison of how potentiation changes along successful lineages under different representations. 
+I hypothesize that see similar trends in potentiation between the two representations. 
+However, due to key differences, such as built-in memory in Markov brains or the differences in neutrality of the fitness landscape due to encodings, I expect the actual values of the measurements to differ between representations. 
+% I do, however, expect the built-in memory to cause differences in some measurements, such as the number of potentiation windows. 
+In Avida, evolving a strategy to successfully consume a single patch can be difficult to evolve (per preliminary work for Chapter \ref{chap:varying_environments}), and then evolving patch-switching behavior beyond that is an additional challenge. 
+Thus I expect Avida to have two potentiation windows, on average, one for evolving the initial patch-harvesting behavior and a second for the patch-switching behavior.
+My hypothesis is that the built-in memory of Markov brains eases the evolution of patch switching, resulting in one potentiation window in a typical Markov brain window, corresponding to the patch-harvesting behavior. 
+In this case, I expect the Markov brain lineages to experience more potentiating gain in that single window, or more slow accumulation of potentiation. 
+No matter what the results ultimately show, this work will be a solid step in exploring how potentiation changes; in combination with Chapters \ref{chap:replaying_associative_learning} and \ref{chap:varying_environments}, this work will complete the set of investigating potentiation when we vary the environment or the underlying organismal representation. 
+These results will therefore be invaluable in future works in potentiation, whether they be theoretical, digital, or microbial.
